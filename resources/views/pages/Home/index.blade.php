@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     @livewireStyles
-    <title>Paymedia | Contact</title>
+    <title>Screen1 | Contact</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
@@ -67,6 +67,22 @@
                     </div>
                 </div>
                 <livewire:contact.contact-form />
+            </div>
+        </section>
+        <section class="contact-map-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <div class="clearfix">
+                        <div class="pull-left">
+                            <div class="title">Screen2</div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <h1>contact number is a mobile number or not</h1>
+                
+                {{-- <livewire:contact.contact-form /> --}}
             </div>
         </section>
         @include('component/footer2')
