@@ -11,9 +11,6 @@ class HomeController extends Controller
         return view('pages.Home.index');
     }
 
-
-   
-
     public function about_us()
     {
         return view('pages.about_us');

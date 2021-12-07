@@ -31,11 +31,12 @@ class ContactForm extends Component
     protected function rules()
     {
         return [
-            'contact.name' => 'required|string|max:255',
-            'contact.email' => 'required',
-            'contact.number' => 'required',
-            'contact.subject' => 'required',
-            'contact.message' => 'required',
+            'contact.full_name' => 'required|string|max:255',
+            'contact.address' => 'required',
+            'contact.contact' => 'required',
+            'contact.gender' => 'required',
+            'contact.birthday' => 'required',
+            'contact.membership' => 'required',
         ];
     }
     /**
@@ -44,11 +45,13 @@ class ContactForm extends Component
      * @var array
      */
     protected $messages = [
-        'contact.name.required' => 'Please enter name.',
-        'contact.email.required' => 'Please enter email.',
-        'contact.number.required' => 'Please enter number.',
-        'contact.subject.required' => 'Please enter subject.',
-        'contact.message.required' => 'Please enter message.',
+        'contact.full_name.required' => 'Please enter name.',
+        'contact.address.required' => 'Please enter address.',
+        'contact.contact.required' => 'Please enter contact number.',
+        'contact.gender.required' => 'Please enter gender.',
+        'contact.birthday.required' => 'Please enter birthday.',
+        'contact.membership.required' => 'Please enter membership.',
+
     ];
 
     /**
@@ -81,6 +84,7 @@ class ContactForm extends Component
     {
 
         $this->validate();
+      
 
         ContactFacade::create($this->contact->toArray());
 

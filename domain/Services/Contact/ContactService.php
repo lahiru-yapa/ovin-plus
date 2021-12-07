@@ -1,8 +1,8 @@
 <?php
 
-namespace domain\Services\subcribe;
+namespace domain\Services\Contact;
 
-use App\Models\subcribe;
+use App\Models\Contact;
 use domain\Facades\Gallery\AlbumFacade;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -16,13 +16,13 @@ use Illuminate\Database\Eloquent\Collection;
  * @license  https://niwadudeals.lk Config
  * @link     https://niwadudeals.lk/
  **/
-class subcribeService
+class ContactService
 {
-    protected $subcribe;
+    protected $contact;
 
     public function __construct()
     {
-        $this->subcribe = new subcribe();
+        $this->contact = new Contact();
     }
 
     /**
@@ -32,7 +32,7 @@ class subcribeService
      */
     public function all(): ?Collection
     {
-        return $this->subcribe->all();
+        return $this->contact->all();
     }
 
     /**
@@ -42,18 +42,18 @@ class subcribeService
      *
      * @return Gallery
      */
-    public function get(int $id): ?subcribe
+    public function get(int $id): ?contact
     {
-        return $this->subcribe->find($id);
+        return $this->contact->find($id);
     }
     /**
      * Get first gallery
      *
      * @return Gallery
      */
-    public function getFirst(): ?subcribe
+    public function getFirst(): ?contact
     {
-        return $this->subcribe->first();
+        return $this->contact->first();
     }
 
     /**
@@ -75,9 +75,10 @@ class subcribeService
      *
      * @return Gallery
      */
-    public function create(array $data): subcribe
+    public function create(array $data): contact
     {
-        return $this->subcribe->create($data);
+
+        return $this->contact->create($data);
     }
 
     /**
@@ -88,9 +89,9 @@ class subcribeService
      *
      * @return bool
      */
-    public function update(subcribe $subcribe, array $data): void
+    public function update(Contact $contact, array $data): void
     {
-        $subcribe->update($this->edit($subcribe, $data));
+        $contact->update($this->edit($contact, $data));
     }
 
     /**
@@ -101,9 +102,9 @@ class subcribeService
      *
      * @return array
      */
-    protected function edit(subcribe $subcribe, array $data): array
+    protected function edit(Contact $contact, array $data): array
     {
-        return array_merge($subcribe->toArray(), $data);
+        return array_merge($contact->toArray(), $data);
     }
 
     /**
@@ -113,8 +114,8 @@ class subcribeService
      */
     public function delete(int $id): void
     {
-        $subcribe = $this->subcribe->find($id);
-        $subcribe->delete();
+        $contact = $this->contact->find($id);
+        $contact->delete();
     }
 
     /**
@@ -124,14 +125,14 @@ class subcribeService
      *
      * @return void
      */
-    public function status(subcribe $subcribe): void
+    public function status(Contact $contact): void
     {
-        if ($subcribe['status'] == 0) {
+        if ($contact['status'] == 0) {
             $data['status'] = 1;
-            $this->update($subcribe, $data);
+            $this->update($contact, $data);
         } else {
             $data['status'] = 0;
-            $this->update($subcribe, $data);
+            $this->update($contact, $data);
         }
     }
 }
