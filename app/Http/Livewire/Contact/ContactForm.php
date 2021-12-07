@@ -84,10 +84,10 @@ class ContactForm extends Component
     {
 
         $this->validate();
-      
+
 
         ContactFacade::create($this->contact->toArray());
 
-        return redirect()->route('contact');
+        return redirect()->route('home');
     }
 }
